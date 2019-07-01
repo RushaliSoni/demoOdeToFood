@@ -15,6 +15,7 @@ namespace demoOdeToFood.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 80, nullable: false),
                     Location = table.Column<string>(maxLength: 255, nullable: false),
+                    //WebSite = table.Column<string>(maxLength: 255, nullable: false),
                     cuisine = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

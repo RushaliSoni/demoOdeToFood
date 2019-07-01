@@ -9,25 +9,33 @@
 <form method="post">
     <input type="hidden" asp-for="Restaurant.id">
     <div class="form-group">
-        <label asp-for="Restaurant.Name"></label>
-        <input asp-for="Restaurant.Name" class="form-control" />
-         <span class="text-danger" asp-validation-for="Restaurant.Name"></span>
+        <div class="form-group">
+            <label asp-for="Restaurant.Name"></label>
+            <input asp-for="Restaurant.Name" class="form-control" />
+            <span class="text-danger" asp-validation-for="Restaurant.Name"></span>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Restaurant.Location"></label>
-        <input asp-for="Restaurant.Location" class="form-control" />
-        <span class="text-danger" asp-validation-for="Restaurant.Location"></span>
+        <div class="form-group">
+            <label asp-for="Restaurant.Location"></label>
+            <input asp-for="Restaurant.Location" class="form-control" />
+            <span class="text-danger" asp-validation-for="Restaurant.Location"></span>
 
-    </div>
-    <div class="form-group">
-        <label asp-for="Restaurant.cuisine"></label>
-        <select class="form-control" asp-for="Restaurant.cuisine " asp-items="Model.Cuisine"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Restaurant.cuisine">Language</label>
+            <select class="form-control" asp-for="Restaurant.cuisine " asp-items="Model.Cuisine"></select>
 
-        <span class="text-danger" asp-validation-for="Restaurant.Name"></span>
+            <span class="text-danger" asp-validation-for="Restaurant.Name"></span>
 
 
-    </div>
-    <button type="submit" class="btn btn-primary">SAVE</button>
+        </div>
+        @*<div class="form-group">
+            <label asp-for="Restaurant.WebSite"></label>
+            <input asp-for="Restaurant.WebSite" class="form-control" />
+            <span class="text-danger" asp-validation-for="Restaurant.WebSite"></span>
+
+        </div>*@
+        <button type="submit" class="btn btn-primary">SAVE</button>
 
 </form>
 

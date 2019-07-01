@@ -1,10 +1,10 @@
 ﻿@page
 @model demoOdeToFood.Pages.Restaurants.ClientRestaurantsModel
 @{
-    ViewData["Title"] = "ClientRestaurants";
+    ViewData["Title"] = "It Company";
 }
 
-<h2>Client Restaurants</h2>
+<h2>IT Company</h2>
 <table class="table" id="restaurants">
 </table>
 
@@ -25,15 +25,16 @@
 
             $(function () {
 
-            var cuisines=["None", "Indian","Greece", "japan","France", "China"]
+            var cuisines=["Python","java","JavaScript","DotNet","Php","Go","Swift"]
             $.ajax("/api/restaurants/",
                 { method: "get" })
                 .then(function (response) {
                     $("#restaurants").DataTable({
                         data: response,
                         columns: [
-                            {"data": "name" },
-                            { "data": "location" },
+                            { "data": "name" },
+                            //{"data": "Website" },
+                            { "data": "Location" },
                             {
                                 "data": "cuisine", "render": function (data)
                                 {

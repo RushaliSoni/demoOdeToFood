@@ -30,9 +30,10 @@ namespace demoOdeToFood.Pages.Restaurants
                 Restaurant = restaurantData.GetById(restaurantId.Value);
 
             }
-            else {
-                Restaurant = new demoOdeToFood.core.Restaurant();   
-             }
+            else
+            {
+                Restaurant = new demoOdeToFood.core.Restaurant();
+            }
             if (Restaurant == null)
             {
                 return RedirectToPage("./NotFound");
@@ -52,9 +53,10 @@ namespace demoOdeToFood.Pages.Restaurants
             }
             else
             {
+                Restaurant.Name = Restaurant.Name.ToUpper();
                 restaurantData.Add(Restaurant);
             }
-           
+
             restaurantData.Commit();
             TempData["Message"] = "Restaurant Saved";
             return RedirectToPage("./detail", new { restaurantId = Restaurant.id });

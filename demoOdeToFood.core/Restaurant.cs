@@ -12,6 +12,7 @@ namespace demoOdeToFood.core
         public String Name { get; set; }
         [Required, StringLength(255)]
         public String Location { get; set; }
+        //public String WebSite { get; set; }
         public CuisineType cuisine { get; set; }
         
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - demoOdeToFood</title>
+    <title>@ViewData["Title"]-IT Company List</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -31,7 +31,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/Restaurants/list">Restaurant</a></li>
+                    <li><a asp-page="/Restaurants/list">It Comapny</a></li>
                     <li><a asp-page="/About">About</a></li>
                     <li><a asp-page="/Contact">Contact</a></li>
                 </ul>
@@ -47,8 +47,8 @@
         <footer>
             <vc:restaurant-count></vc:restaurant-count>
             @RenderSection("Footer" , required:false)
-            <p>&copy; 2019 - demoOdeToFood</p>
-            <img src="/OdeToFood.png"/>
+            <p>&copy; 2019 - IT Company List</p>
+            <img src="/images.png"/>
         </footer>
     </div>
 

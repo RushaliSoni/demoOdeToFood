@@ -10,14 +10,17 @@
     Id : @Model.Restaurant.id
 </div>
 <div>
-    Location : @Model.Restaurant.Location
+    HeadQuater : @Model.Restaurant.Location
 </div>
 <div>
-    Cuision : @Model.Restaurant.cuisine
+   Languages : @Model.Restaurant.cuisine
 </div>
+@*<div>
+    WebSite : @Model.Restaurant.WebSite
+</div>*@
 @if (Model.Message != null)
 {
   <div class="alert alert-info">@Model.Message</div>
 }
 
-<a asp-page="./list" class="btn btn-default">All Restuarant</a>
+<a asp-page="./list" class="btn btn-default">All IT Comapny List</a>

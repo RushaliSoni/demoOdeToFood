@@ -12,7 +12,7 @@ namespace demoOdeToFood.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "IT Company";
         }
     }
 }

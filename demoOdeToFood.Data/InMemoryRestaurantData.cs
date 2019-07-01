@@ -15,9 +15,9 @@ namespace demoOdeToFood.Data
         {
             restaurants = new List<Restaurant>()
             {
-                new Restaurant {id=1,Name= "Rangoli" , Location="Gujarat", cuisine=CuisineType.Indian},
-                new Restaurant {id=2,Name= "Sankalp" , Location="Japan (Kunfooo)", cuisine=CuisineType.japan},
-                new Restaurant {id=3,Name= "Thalai" , Location="Chandi Chok to china", cuisine=CuisineType.China}
+                new Restaurant {id=1,Name= "Joshi Biztech Solution Pvt Ltd" , Location="Bhavnagar", cuisine=CuisineType.JavaScript},
+                new Restaurant {id=2,Name= "Tata Consultancy Services " , Location="Mumbai ", cuisine=CuisineType.Php},
+                new Restaurant {id=3,Name= "Tatva Soft" , Location="Ahemdabad",  cuisine=CuisineType.Python}
             };
         }
         public Restaurant GetById(int id)
@@ -39,6 +39,7 @@ namespace demoOdeToFood.Data
                 restaurant.Name = updatedRestaurant.Name;
                 restaurant.Location = updatedRestaurant.Location;
                 restaurant.cuisine = updatedRestaurant.cuisine;
+                //restaurant.WebSite = updatedRestaurant.WebSite;
 
             }
             return restaurant;
@@ -54,9 +55,9 @@ namespace demoOdeToFood.Data
         public IEnumerable<Restaurant> GetRestaurantsByName(string name =null)
         {
             return from r in restaurants
-                   where string .IsNullOrEmpty(name) ||  r.Name.StartsWith(name)
-                   orderby r.Name
-                   select r;
+                 where string .IsNullOrEmpty(name) ||  r.Name.Contains(name.ToUpper())
+                 orderby r.Name
+                 select r;
         }
 
         public Restaurant Delete(int id)

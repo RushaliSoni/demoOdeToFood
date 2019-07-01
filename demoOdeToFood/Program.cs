@@ -29,7 +29,7 @@ namespace demoOdeToFood
             {
 
                 var db = scope.ServiceProvider.GetRequiredService<demoOdeToFoodDbContext>();
-                db.Database.Migrate();
+                //db.Database.Migrate();
 
 
             }

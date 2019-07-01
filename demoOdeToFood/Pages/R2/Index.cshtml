@@ -22,6 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant[0].cuisine)
             </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Restaurant[0].WebSite)
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -37,6 +40,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.cuisine)
             </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.WebSite)
+            </td>*@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
