@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,8 +31,12 @@ namespace demoOdeToFood
             {
                 options.UseSqlServer(Configuration.GetConnectionString("OdeToFoodDb"));
             });
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                          .AddEntityFrameworkStores<demoOdeToFoodDbContext>();
+
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
-          //  services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            //  services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -55,10 +60,11 @@ namespace demoOdeToFood
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-            
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseNodeModules(env);
             app.UseCookiePolicy();
             app.UseMvc();
