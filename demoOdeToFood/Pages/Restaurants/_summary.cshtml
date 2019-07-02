@@ -6,29 +6,40 @@
              <h3>@Model.Name</h3>
         </div>
         <div class="panel-body">
-            <span>Location: @Model.Location</span>
+            <span><b>Location</b>: @Model.Location </span><br/>
             @*<span>WebSite: @Model.WebSite</span>*@
-            <span>Programming Languages: @Model.cuisine</span>
+            <span><b>Programming Languages</b>: @Model.cuisine</span>
         </div>
         <div class="panel-footer">
             <a class="btn btn-lg"
                asp-page="./detail"
-               asp-route-restaurantId="@Model.id">
-
-                <i class="glyphicon glyphicon-zoom-in"></i>
+               asp-route-restaurantId="@Model.id">Detail
+                @*<button type="button" class="btn btn-info">Detail</button>*@
             </a>
+
+
+            @*<i class="glyphicon glyphicon-zoom-in"></i>*@
+
             <a class="btn btn-lg"
                asp-page="./Edit"
-               asp-route-restaurantId="@Model.id">
+               role="button"
+               asp-route-restaurantId="@Model.id">Edit
 
-                <i class="glyphicon glyphicon-edit"></i>
+
+                @*<i class="glyphicon glyphicon-edit"></i>*@
             </a>
+            @*<button type="button" class="btn btn-info">Edit</button>*@
+
+
             <a class="btn btn-lg"
                asp-page="./delete"
-               asp-route-restaurantId="@Model.id">
+               asp-route-restaurantId="@Model.id">Delete
+                @*<button type="button" class="btn btn-info">Delete</button>*@
 
-                <i class="glyphicon glyphicon-trash"></i>
+                @*<i class="glyphicon glyphicon-trash"></i>*@
             </a>
+
+
 
         </div>
 </div>
