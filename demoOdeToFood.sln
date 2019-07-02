@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demoOdeToFood.core", "demoO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "demoOdeToFood.Data", "demoOdeToFood.Data\demoOdeToFood.Data.csproj", "{E09636A1-DC9F-4264-AF7A-33ACB39CFBD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiAuthenticationControllers", "WebApiAuthenticationControllers\WebApiAuthenticationControllers.csproj", "{BF1E2FBF-1F9B-4399-B911-C4F26559EB29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E09636A1-DC9F-4264-AF7A-33ACB39CFBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E09636A1-DC9F-4264-AF7A-33ACB39CFBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E09636A1-DC9F-4264-AF7A-33ACB39CFBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1E2FBF-1F9B-4399-B911-C4F26559EB29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1E2FBF-1F9B-4399-B911-C4F26559EB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1E2FBF-1F9B-4399-B911-C4F26559EB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1E2FBF-1F9B-4399-B911-C4F26559EB29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
