@@ -14,85 +14,45 @@ using WebApiAuthenticationControllers.Models;
 
 
 
-namespace WebAPI.Controllers
-
+namespace WebApiAuthenticationControllers.Controllers
 {
+      [Route("api/[controller]")]
+      [ApiController]
+      public class ApplicationUserController : ControllerBase
+       {
+          private UserManager<ApplicationUser> _userManager;
+          private SignInManager<ApplicationUser> _singInManager;
+          private readonly ApplicationSettings _appSettings;
 
-    [Route("api/[controller]")]
-
-    [ApiController]
-
-    public class ApplicationUserController : ControllerBase
-
-    {
-
-        private UserManager<ApplicationUser> _userManager;
-
-        private SignInManager<ApplicationUser> _singInManager;
-        private readonly ApplicationSettings _appSettings;
-
-
-
-
-        public ApplicationUserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings)
-
-        {
-
-            _userManager = userManager;
-
-            _singInManager = signInManager;
-            _appSettings = appSettings.Value;
-
-
-        }
-
-
-
-        [HttpPost]
-
-        [Route("Register")]
-
-        //POST : /api/ApplicationUser/Register
-
-        public async Task<Object> PostApplicationUser(ApplicationUserModel model)
-
-        {
-
-            var applicationUser = new ApplicationUser()
+          public ApplicationUserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings)
+          {
+               _userManager = userManager;
+               _singInManager = signInManager;
+               _appSettings = appSettings.Value;
+          }
+         [HttpPost]
+         [Route("Register")]
+         //POST : /api/ApplicationUser/Register
+         public async Task<Object> PostApplicationUser(ApplicationUserModel model)
+         {
+                var applicationUser = new ApplicationUser()
+                {
+                     UserName = model.UserName,
+                     Email = model.Email,
+                     FullName = model.FullName
+                };
+           try
             {
-
-                UserName = model.UserName,
-
-                Email = model.Email,
-
-                FullName = model.FullName
-
-            };
-
-
-
-            try
-
-            {
-
-                var result = await _userManager.CreateAsync(applicationUser, model.Password);
-
-                return Ok(result);
-
+               var result = await _userManager.CreateAsync(applicationUser, model.Password);
+               return Ok(result);
             }
-
             catch (Exception ex)
-
             {
-
-
-
                 throw ex;
-
             }
-
-        }
+          }
         [HttpPost]
+        //[HttpGet]
         [Route("Login")]
         //POST : /api/ApplicationUser/Login
         public async Task<ActionResult> Login(LoginModel model)
@@ -100,20 +60,23 @@ namespace WebAPI.Controllers
             var user = await _userManager.FindByNameAsync(model.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var tokenDescriptor = new SecurityTokenDescriptor
-                {
-                    Subject = new ClaimsIdentity(new Claim[]
-                    {
-                        new Claim("UserID",user.Id.ToString())
-                    }),
-                    Expires = DateTime.UtcNow.AddMinutes(5), // Token Expires Time..
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
-                };
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var securityToken = tokenHandler.CreateToken(tokenDescriptor);
-                var token = tokenHandler.WriteToken(securityToken);
-                return Ok(new { token });
-
+                //var tokenDescriptor = new SecurityTokenDescriptor
+                //{
+                //    Subject = new ClaimsIdentity(new Claim[]
+                //    {
+                //        new Claim("UserID",user.Id.ToString())
+                //    }),
+                //    Expires = DateTime.UtcNow.AddDays(1), // Token Expires Time..
+                //    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
+                //};
+                //var tokenHandler = new JwtSecurityTokenHandler();
+                //var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+                //var token = tokenHandler.WriteToken(securityToken);
+                //return Ok(new { token });
+                //return Ok();
+                //string msg = user.FullName;
+                 string msg = "login Succes";
+                return Ok ((msg));
             }
             else
                 return BadRequest(new { message = "Username or password is incorrect." });

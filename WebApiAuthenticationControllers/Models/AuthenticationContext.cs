@@ -10,10 +10,7 @@ namespace WebApiAuthenticationControllers.Models
     public class AuthenticationContext : IdentityDbContext
     {
         public AuthenticationContext(DbContextOptions option) : base (option)
-        {
-
-        }
-
+        {}
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
